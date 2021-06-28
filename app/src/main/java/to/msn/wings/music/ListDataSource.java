@@ -11,11 +11,7 @@ class ListDataSource {
               0,1,2,3,4,5,6,7,8,9
             };
 
-    /*private static final String[] names =
-            {
-                    "jazz_in_paris", "the_coldest_shoulder", "croladuex", "deep_night", "feeling_blue",
-                    "house_party", "million_try", "monday_8am", "moonlit", "somebody_else"
-            };*/
+
 
     public static final int[] icons =
             {
