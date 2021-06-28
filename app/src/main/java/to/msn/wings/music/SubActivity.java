@@ -83,14 +83,12 @@ public class SubActivity extends AppCompatActivity {
          icon = map.get("icon");
          song_id = map.get("song_id");*/
 
-        //REYURNボタンを押したとき
+        //RETURNボタンを押したとき
         Button returnButton = findViewById(R.id.return_button);
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplication(), MainActivity.class);
-                //mediaPlayer.stop();
-                //oneTimeOnly = 0;
 
                 //メインアクティビティ開始
                 startActivity(intent);
@@ -121,8 +119,6 @@ public class SubActivity extends AppCompatActivity {
         seekbar.setClickable(true);
         b2.setEnabled(false);
 
-        //ImageViewの画像を丸くする
-
         //アニメーションの設定
         rotate = new RotateAnimation(0.0f, 360.0f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
@@ -150,17 +146,12 @@ public class SubActivity extends AppCompatActivity {
 
                 }
 
-                //Toast.makeText(getApplicationContext(), "Playing sound",Toast.LENGTH_SHORT).show();
                 mediaPlayer.start();
 
                 finalTime = mediaPlayer.getDuration();
                 startTime = mediaPlayer.getCurrentPosition();
 
                 seekbar.setMax((int) finalTime);
-                /*if (oneTimeOnly == 0) {
-                    seekbar.setMax((int) finalTime);
-                    oneTimeOnly = 1;
-                }*/
 
                 tx2.setText(String.format("%d min, %d sec",
                         TimeUnit.MILLISECONDS.toMinutes((long) finalTime),
@@ -203,7 +194,7 @@ public class SubActivity extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getApplicationContext(), "Pausing sound",Toast.LENGTH_SHORT).show();
+
                 mediaPlayer.pause();
 
                 //一時停止ボタンを使用不可
@@ -225,9 +216,8 @@ public class SubActivity extends AppCompatActivity {
                 if((temp+forwardTime)<=finalTime){
                     startTime = startTime + forwardTime;
                     mediaPlayer.seekTo((int) startTime);
-                    //Toast.makeText(getApplicationContext(),"You have Jumped forward 5 seconds",Toast.LENGTH_SHORT).show();
                 }else{
-                    //Toast.makeText(getApplicationContext(),"Cannot jump forward 5 seconds",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Cannot jump forward 5 seconds",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -241,9 +231,8 @@ public class SubActivity extends AppCompatActivity {
                 if((temp-backwardTime)>0){
                     startTime = startTime - backwardTime;
                     mediaPlayer.seekTo((int) startTime);
-                    //Toast.makeText(getApplicationContext(),"You have Jumped backward 5 seconds",Toast.LENGTH_SHORT).show();
                 }else{
-                    //Toast.makeText(getApplicationContext(),"Cannot jump backward 5 seconds",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Cannot jump backward 5 seconds",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -373,13 +362,5 @@ public class SubActivity extends AppCompatActivity {
         }
     };
 
-    //アプリ終了
-    /*protected  void onDestroy(){
-        super.onDestroy();
 
-        if(mediaPlayer != null){
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
-    }*/
 }
