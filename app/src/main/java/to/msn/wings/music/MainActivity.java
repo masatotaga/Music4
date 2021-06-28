@@ -21,6 +21,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        int[]ids = ListDataSource.getAllId();
+        ArrayList<String> names = ListDataSource.getAllNames();
+        int[]icons = ListDataSource.getAllIcons();
+        int[]song_id = ListDataSource.getAllSong_id();
+
+
+        //ArrayListにリスト用データを詰め替える
+        ArrayList<ListItem> data = new ArrayList<>();
+        for(int i = 0; i < names.size(); i++){
+
 
             //１件分のデータを設定
             ListItem item = new ListItem();
@@ -50,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
                                 ListItem s = (ListItem) list.getItemAtPosition(position);
                                 int id2 = s.getId();
                                 int pos = position;
-
+                                
+                                //データを追加
                                 intent.putExtra("id2", id2);
                                 
                                 //サブアクティビティ開始
