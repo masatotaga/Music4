@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">music3</string>
+    <string name="back"><![CDATA[>]]></string>
+    <string name="rewind"><![CDATA[<<]]></string>
+    <string name="forward"><![CDATA[>>]]></string>
+    <string name="pause">||</string>
+    <string name="id2">id2</string>
+</resources>
